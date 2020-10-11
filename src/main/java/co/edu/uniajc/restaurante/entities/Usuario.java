@@ -8,10 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 
 @Entity
 @Table(name = "usuario")
@@ -22,25 +25,41 @@ public class Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer usuarioId;
-	private String alias;
+	private String nombre;
 	private String email;
 	private String password;
+	
+    public TipoUsuario fkTipoUsuario ;
+    
+    
+	
+	@ManyToOne
+	@JoinColumn(name="tipo_usuario")
+	public TipoUsuario getFkTipoUsuario() {
+		return fkTipoUsuario;
+	}
+
+	public void setFkTipoUsuario(TipoUsuario fkTipoUsuario) {
+		this.fkTipoUsuario = fkTipoUsuario;
+	}
+
 	
 	public Usuario (){
 		
 	}
 
-	public Usuario(Integer usuarioId, String alias, String email, String password) {
-		super();
+	public Usuario(Integer usuarioId, String nombre, String email, String password,
+			TipoUsuario fkTipoUsuario) {
 		this.usuarioId = usuarioId;
-		this.alias = alias;
+		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
+		this.fkTipoUsuario = fkTipoUsuario;
 	}
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name="usuario_id")
+	@Column(name= "usuario_id")
 	public Integer getUsuarioId() {
 		return usuarioId;
 	}
@@ -49,16 +68,16 @@ public class Usuario implements Serializable{
 		this.usuarioId = usuarioId;
 	}
 
-	@Column(name="alias")
-	public String getAlias() {
-		return alias;
+	@Column(name= "nombre")
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setAlias(String alias) {
-		this.alias = alias;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-	@Column(name="email")
+	@Column(name= "email")
 	public String getEmail() {
 		return email;
 	}
@@ -67,7 +86,7 @@ public class Usuario implements Serializable{
 		this.email = email;
 	}
 
-	@Column(name="password")
+	@Column(name= "password")
 	public String getPassword() {
 		return password;
 	}
@@ -75,12 +94,5 @@ public class Usuario implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	@Override
-	public String toString() {
-		return "Usuario [usuarioId=" + usuarioId + ", alias=" + alias + ", email=" + email + ", password=" + password
-				+ "]";
-	}
-	
 	
 }
