@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,31 +16,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.uniajc.restaurante.entities.TipoUsuario;
-import co.edu.uniajc.restaurante.service.TipoUsuarioService;
+import co.edu.uniajc.restaurante.entities.Platos;
+import co.edu.uniajc.restaurante.entities.Usuario;
+import co.edu.uniajc.restaurante.service.PlatosService;
+import co.edu.uniajc.restaurante.service.UserService;
 
 //@CrossOrigin(origins="http://localhost:3000")
 @EnableAutoConfiguration
 @RestController
-@RequestMapping(value = "tipousuariows")
-public class TipoUsuarioController {
+@RequestMapping(value = "platosws")
+public class PlatosController {
 
-	Logger log = Logger.getLogger(TipoUsuarioController.class.getName());
+	Logger log = Logger.getLogger(PlatosController.class.getName());
 
 	@Autowired
-	TipoUsuarioService tipoUsuarioService;
+	PlatosService platosService;
 
 	@GetMapping(value = "list")
-	public ResponseEntity<List<TipoUsuario>> getTipoUsuarios() {
+	public ResponseEntity<List<Platos>> getPlatos() {
 		log.info("LIST");
-		List<TipoUsuario> tipoUsuario = tipoUsuarioService.findAll();
-		return new ResponseEntity<>(tipoUsuario, HttpStatus.OK);
+		List<Platos> platos = platosService.findAll();
+		return new ResponseEntity<>(platos, HttpStatus.OK);
 	}
 
 	@PostMapping(value = "create")
-	public ResponseEntity<TipoUsuario> createTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
+	public ResponseEntity<Platos> createPlatos(@RequestBody Platos platos) {
 		log.info("CREATE");
-		TipoUsuario userReturn = tipoUsuarioService.createTipoUsuario(tipoUsuario);
+		Platos userReturn = platosService.createPlatos(platos);
 		if (userReturn != null) {
 			return new ResponseEntity<>(userReturn, HttpStatus.OK);
 		} else {
@@ -48,9 +51,9 @@ public class TipoUsuarioController {
 	}
 
 	@PutMapping(value = "update")
-	public ResponseEntity<TipoUsuario> updateTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
+	public ResponseEntity<Platos> updatePlatos(@RequestBody Platos platos) {
 		log.info("UPDATE");
-		TipoUsuario userReturn = tipoUsuarioService.updateTipoUsuario(tipoUsuario);
+		Platos userReturn = platosService.updatePlatos(platos);
 		if (userReturn != null) {
 			return new ResponseEntity<>(userReturn, HttpStatus.OK);
 		} else {
@@ -59,9 +62,9 @@ public class TipoUsuarioController {
 	}
 
 	@DeleteMapping(value = "delete")
-	public HttpStatus deleteTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
+	public HttpStatus deletePlatos(@RequestBody Platos platos) {
 		log.info("DELETE");
-		tipoUsuarioService.deleteTipoUsuario(tipoUsuario);
+		platosService.deletePlatos(platos);
 		return HttpStatus.OK;
 	}
 

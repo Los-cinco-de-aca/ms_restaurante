@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.edu.uniajc.restaurante.entities.TipoUsuario;
-import co.edu.uniajc.restaurante.entities.Usuario;
 import co.edu.uniajc.restaurante.repository.TipoUsuarioRepository;
-import co.edu.uniajc.restaurante.repository.UserRepository;
 import co.edu.uniajc.restaurante.service.TipoUsuarioService;
-import co.edu.uniajc.restaurante.service.UserService;
 
 @Service
 public class TipoUsuarioServiceImpl implements TipoUsuarioService {
