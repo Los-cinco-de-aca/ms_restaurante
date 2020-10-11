@@ -15,8 +15,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-import uniajc.edu.co.generador_citas.app.ws.pojos.Role;
-
 @Entity
 @Table(name = "tipo_usuario")
 @JsonInclude(value = Include.NON_NULL)
