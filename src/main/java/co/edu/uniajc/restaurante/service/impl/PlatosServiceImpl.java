@@ -20,25 +20,21 @@ public class PlatosServiceImpl implements PlatosService {
 
 	@Override
 	public List<Platos> findAll() {
-		// TODO Auto-generated method stub
 		return platosRepository.findAll();
 	}
 
 	@Override
 	public Platos createPlatos(Platos platos) {
-		// TODO Auto-generated method stub
 		return platosRepository.save(platos);
 	}
 
 	@Override
 	public Platos updatePlatos(Platos platos) {
-		// TODO Auto-generated method stub
 		return platosRepository.save(platos);
 	}
 
 	@Override
 	public void deletePlatos(Platos platos) {
-		// TODO Auto-generated method stub
 		platosRepository.delete(platos);
 	}
 	

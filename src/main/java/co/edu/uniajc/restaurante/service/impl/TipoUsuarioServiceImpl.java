@@ -20,25 +20,21 @@ public class TipoUsuarioServiceImpl implements TipoUsuarioService {
 
 	@Override
 	public List<TipoUsuario> findAll() {
-		// TODO Auto-generated method stub
 		return tipoUsuarioRepository.findAll();
 	}
 
 	@Override
 	public TipoUsuario createTipoUsuario(TipoUsuario tipoUsuario) {
-		// TODO Auto-generated method stub
 		return tipoUsuarioRepository.save(tipoUsuario);
 	}
 
 	@Override
 	public TipoUsuario updateTipoUsuario(TipoUsuario tipoUsuario) {
-		// TODO Auto-generated method stub
 		return tipoUsuarioRepository.save(tipoUsuario);
 	}
 
 	@Override
 	public void deleteTipoUsuario(TipoUsuario tipoUsuario) {
-		// TODO Auto-generated method stub
 		tipoUsuarioRepository.delete(tipoUsuario);
 	}
 	
