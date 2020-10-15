@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
+	id 'jacoco'
 	id "org.sonarqube" version "3.0"
 }
 
@@ -24,7 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	//implementation 'org.springframework.boot:spring-boot-starter-web'
-	//implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-core'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -60,3 +61,15 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.2
+			}
+		}
+	}
+	
+	}
