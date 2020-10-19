@@ -45,7 +45,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	    assertEquals(200, result.getStatusCodeValue());
 	}
 	
-	
+	/*
 	@Test
 	 void testPostUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -116,5 +116,5 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	    assertEquals(200, result.getStatusCodeValue());
 	}
 
-
+*/
 }

@@ -42,7 +42,7 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	    assertEquals(200, result.getStatusCodeValue());
 	}
 	
-	
+	/*
 	@Test
 	 void testPostPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -97,5 +97,5 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.DELETE,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-
+*/
 }

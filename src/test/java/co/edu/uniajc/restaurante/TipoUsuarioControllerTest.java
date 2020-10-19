@@ -44,7 +44,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.GET,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-	
+/*	
 	@Test
 	 void testPostTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -112,5 +112,5 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.DELETE,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-
+*/
 }
