@@ -32,7 +32,7 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	@Test
 	 void testGetPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/platosws/list";
+		final String baseUrl = url + randomServerPort + "/restaurante/platosws/list";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -46,13 +46,13 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	@Test
 	 void testPostPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/platosws/create";
+		final String baseUrl = url + randomServerPort + "/restaurante/platosws/create";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
 		Platos platos = new Platos();
-		int platoId = 35;
+		int platoId = 7;
         platos.setPlatoId(platoId);
         platos.setNombre("Carnitas BBQ");
         platos.setPrecio(12300);
@@ -64,13 +64,13 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	@Test
 	 void testPutPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/platosws/update";
+		final String baseUrl = url + randomServerPort + "/restaurante/platosws/update";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
 		Platos platos = new Platos();
-		int platoId = 35;
+		int platoId = 7;
         platos.setPlatoId(platoId);
         platos.setNombre("Carnitas BBQ*");
         platos.setPrecio(12300);
@@ -83,13 +83,13 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	@Test
 	 void testDeletePlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/platosws/delete";
+		final String baseUrl = url + randomServerPort + "/restaurante/platosws/delete";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
 		Platos platos = new Platos();
-		int platoId = 35;
+		int platoId = 7;
         platos.setPlatoId(platoId);
         platos.setNombre("Carnitas BBQ*");
         platos.setPrecio(12300);

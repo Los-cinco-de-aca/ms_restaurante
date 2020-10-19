@@ -35,7 +35,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	@Test
 	 void testGetTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/tipousuariows/list";
+		final String baseUrl = url + randomServerPort + "/restaurante/tipousuariows/list";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -48,7 +48,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	@Test
 	 void testPostTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/tipousuariows/create";
+		final String baseUrl = url + randomServerPort + "/restaurante/tipousuariows/create";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -73,7 +73,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	@Test
 	 void testPutTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/tipousuariows/update";
+		final String baseUrl = url + randomServerPort + "/restaurante/tipousuariows/update";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
@@ -99,7 +99,7 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	@Test
 	 void testDeleteTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
-		final String baseUrl = url + randomServerPort + "/tipousuariows/delete";
+		final String baseUrl = url + randomServerPort + "/restaurante/tipousuariows/delete";
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
