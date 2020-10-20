@@ -58,16 +58,18 @@ dependencies {
        // https://mvnrepository.com/artifact/org.postgresql/postgresql
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
     
-    
+        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
     
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-oauth2
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-oauth2', version: '2.1.2.RELEASE'
+    //compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-oauth2', version: '2.1.2.RELEASE'
     
     // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-security
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-security', version: '2.1.2.RELEASE'
     
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.1.2.RELEASE', ext: 'pom'
+    
+    testImplementation 'org.springframework.security:spring-security-test'
     
     
     

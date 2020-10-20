@@ -36,7 +36,7 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		headers.add("Authorization","Bearer " +"35ff9a72-d7bb-40bf-9e66-23758b7a19d9");
 		HttpEntity<String> request = new HttpEntity<>(headers);
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.GET,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
