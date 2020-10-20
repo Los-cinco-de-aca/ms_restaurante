@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiResponses;
 public class AuthController {
 	
 	@Autowired
-	private AuthService Auth_serv;
+	 AuthService authServ;
 	
 	@ApiResponses(value = {
 	        @ApiResponse(code = 200, message = "OK"),
@@ -27,7 +27,7 @@ public class AuthController {
 	    })
 	@PostMapping("/token")
     public String getToken(@RequestBody LoginDTO login){
-       String token= Auth_serv.login(login.getCorreo(),login.getPassword());
+       String token= authServ.login(login.getCorreo(),login.getPassword());
        if(StringUtils.isEmpty(token)){
            return "no token found!";
        }

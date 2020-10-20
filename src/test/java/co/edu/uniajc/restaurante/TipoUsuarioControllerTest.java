@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -22,6 +23,7 @@ import org.springframework.web.client.RestTemplate;
 
 import co.edu.uniajc.restaurante.entities.TipoUsuario;
 import co.edu.uniajc.restaurante.entities.Usuario;
+import co.edu.uniajc.restaurante.service.AuthService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -32,6 +34,9 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 	
 	String url = "http://localhost:";
 	
+	@Autowired
+	 AuthService authServ;
+	
 	@Test
 	 void testGetTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -39,12 +44,13 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		HttpEntity<String> request = new HttpEntity<>(headers);
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.GET,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-/*	
+	
 	@Test
 	 void testPostTipoUsuario() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -52,7 +58,8 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		TipoUsuario tipoUsuario = new TipoUsuario();
 		Usuario usuario = new Usuario();
 		List<Usuario> listUsuarios = new ArrayList<>();
@@ -77,7 +84,8 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		TipoUsuario tipoUsuario = new TipoUsuario();
 		Usuario usuario = new Usuario();
 		List<Usuario> listUsuarios = new ArrayList<>();
@@ -103,7 +111,8 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		TipoUsuario tipoUsuario = new TipoUsuario();
 		int tipoUsuarioId = 4;
 		tipoUsuario.setTipoUsuarioId(tipoUsuarioId);
@@ -112,5 +121,5 @@ import co.edu.uniajc.restaurante.entities.Usuario;
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.DELETE,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-*/
+
 }

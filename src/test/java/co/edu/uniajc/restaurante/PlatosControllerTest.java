@@ -7,6 +7,7 @@ import java.net.URISyntaxException;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -19,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 import co.edu.uniajc.restaurante.entities.Platos;
+import co.edu.uniajc.restaurante.service.AuthService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -29,6 +31,9 @@ import co.edu.uniajc.restaurante.entities.Platos;
 	
 	String url = "http://localhost:";
 	
+	@Autowired
+	 AuthService authServ;
+	
 	@Test
 	 void testGetPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -36,13 +41,14 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"35ff9a72-d7bb-40bf-9e66-23758b7a19d9");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		HttpEntity<String> request = new HttpEntity<>(headers);
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.GET,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
 	
-	/*
+	
 	@Test
 	 void testPostPlatos() throws URISyntaxException {
 		RestTemplate restTemplate = new RestTemplate();
@@ -50,7 +56,8 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		Platos platos = new Platos();
 		int platoId = 7;
         platos.setPlatoId(platoId);
@@ -68,7 +75,8 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		Platos platos = new Platos();
 		int platoId = 7;
         platos.setPlatoId(platoId);
@@ -87,7 +95,8 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		URI uri = new URI(baseUrl);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		headers.add("Authorization","Bearer " +"7f2658b5-51f2-4b34-b4b8-a256d35d570f");
+		String token= authServ.login("linda@gmail.com","987");
+		headers.add("Authorization","Bearer " + token);
 		Platos platos = new Platos();
 		int platoId = 7;
         platos.setPlatoId(platoId);
@@ -97,5 +106,5 @@ import co.edu.uniajc.restaurante.entities.Platos;
 		ResponseEntity<String> result = restTemplate.exchange(uri,HttpMethod.DELETE,request,String.class);
 	    assertEquals(200, result.getStatusCodeValue());
 	}
-*/
+
 }
