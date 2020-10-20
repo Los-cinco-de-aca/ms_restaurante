@@ -108,7 +108,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 			this.total = total;
 		}
 
-		@Column(name="date")
+		@Column(name="fecha")
 		public Date getFecha() {
 			return fecha;
 		}
