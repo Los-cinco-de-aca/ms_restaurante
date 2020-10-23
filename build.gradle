@@ -24,55 +24,36 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.flywaydb:flyway-core'
+	implementation 'org.flywaydb:flyway-core:5.2.4'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	
-		compile 'com.google.code.gson:gson:2.8.0'
-	  // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+	compile 'com.google.code.gson:gson:2.8.0'
+	
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.3.3.RELEASE'
-    
-     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.3.3.RELEASE'
-    
-      // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jersey
-    //compile group: 'org.springframework.boot', name: 'spring-boot-starter-jersey', version: '2.3.3.RELEASE'
-    
-    	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.3.3.RELEASE'
     
-       // https://mvnrepository.com/artifact/io.springfox/springfox-swagger2
     compile group: 'io.springfox', name: 'springfox-swagger2', version: '3.0.0'
 
-    
-    // https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     
     testCompile group: 'junit', name: 'junit', version: '4.13'
     
-    //testCompile group: 'org.jacoco', name: 'org.jacoco.agent', version: '0.8.6'
-    
-       // https://mvnrepository.com/artifact/org.postgresql/postgresql
     compile group: 'org.postgresql', name: 'postgresql', version: '42.2.8'
     
-        compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
     
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-oauth2
-    //compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-oauth2', version: '2.1.2.RELEASE'
-    
-    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-security
     compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-security', version: '2.1.2.RELEASE'
-    
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent
+
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-parent', version: '2.1.2.RELEASE', ext: 'pom'
     
     testImplementation 'org.springframework.security:spring-security-test'
     
-    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
-compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     
     
     
