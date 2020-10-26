@@ -76,3 +76,12 @@ jacocoTestCoverageVerification {
 	}
 	
 	}
+	
+	
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+test.finalizedBy jacocoTestReport
+tasks['sonarqube'].dependsOn test
