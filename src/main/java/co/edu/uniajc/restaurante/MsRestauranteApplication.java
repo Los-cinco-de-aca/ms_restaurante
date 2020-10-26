@@ -3,8 +3,6 @@ package co.edu.uniajc.restaurante;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
@@ -15,7 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import co.edu.uniajc.restaurante.configuration.SwaggerConfig;
 import co.edu.uniajc.restaurante.security.JWTAuthorizationFilter;
@@ -51,12 +48,6 @@ public class MsRestauranteApplication {
 		@Override
 		protected void configure(HttpSecurity http) throws Exception {
 			http.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/token").permitAll()
-
-					// .antMatchers("/v2/api-docs", "/configuration/ui",
-					// "/swagger-resources",
-					// "/configuration/security",
-					// "/swagger-ui.html","co.edu.uniajc.restaurante.controller/.*",
-					// "/webjars/**").permitAll()
 
 					.antMatchers(HttpMethod.POST, "/pedidosws/create").permitAll()
 					.antMatchers(HttpMethod.GET, "/pedidosws/list").permitAll()
