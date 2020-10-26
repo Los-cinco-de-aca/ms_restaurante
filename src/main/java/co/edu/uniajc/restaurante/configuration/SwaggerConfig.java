@@ -14,11 +14,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
 	@Bean
-	public Docket api(){
+	public Docket buildDocket(){
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
 				.apis(RequestHandlerSelectors.basePackage("co.edu.uniajc.restaurante.controller"))
-				.paths(PathSelectors.regex("/.*"))
+				//.paths(PathSelectors.regex("/.*"))
+				.paths(PathSelectors.any())
 				.build();	
 	}
 	

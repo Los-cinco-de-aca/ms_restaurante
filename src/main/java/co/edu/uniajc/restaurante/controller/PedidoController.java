@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uniajc.restaurante.entities.Pedido;
 import co.edu.uniajc.restaurante.service.PedidoService;
+import io.swagger.annotations.Api;
 
 @EnableAutoConfiguration
 @RestController
