@@ -29,7 +29,11 @@ public class MsRestauranteApplication {
     @Configuration
     class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
- 
+        @Override
+        public void configure(WebSecurity web) throws Exception {
+            web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**");
+        }
+
 
         @Override
         protected void configure(HttpSecurity http) throws Exception {
@@ -65,15 +69,7 @@ public class MsRestauranteApplication {
                 
         }
         
-        @Configuration
-        public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-               @Override
-               public void configure(WebSecurity web) throws Exception {
-                   web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**");
-               }
-
-        }
     }
 
 }
