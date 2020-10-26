@@ -36,6 +36,11 @@ public class MsRestauranteApplication {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/token").permitAll()
                 
+                .antMatchers(HttpMethod.POST, "/swagger-ui.html").permitAll()
+                .antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
+                .antMatchers(HttpMethod.PUT, "/swagger-ui.html").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/swagger-ui.html").permitAll()
+                
                 .antMatchers(HttpMethod.POST, "/pedidosws/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/pedidosws/list").permitAll()
                 .antMatchers(HttpMethod.PUT, "/pedidosws/update").permitAll()
