@@ -40,6 +40,9 @@ public class MsRestauranteApplication {
             http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/token").permitAll()
+                
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", 
+                		"/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
                              
                 .antMatchers(HttpMethod.POST, "/pedidosws/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/pedidosws/list").permitAll()
