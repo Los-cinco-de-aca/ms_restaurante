@@ -35,6 +35,27 @@ public class MsRestauranteApplication {
             http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/token").permitAll()
+                
+                .antMatchers(HttpMethod.POST, "/pedidosws/create").permitAll()
+                .antMatchers(HttpMethod.GET, "/pedidosws/list").permitAll()
+                .antMatchers(HttpMethod.PUT, "/pedidosws/update").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/pedidosws/delete").permitAll()
+                
+                .antMatchers(HttpMethod.POST, "/platosws/create").permitAll()
+                .antMatchers(HttpMethod.GET, "/platosws/list").permitAll()
+                .antMatchers(HttpMethod.PUT, "/platosws/update").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/platosws/delete").permitAll()
+                
+                .antMatchers(HttpMethod.POST, "/tipousuariows/create").permitAll()
+                .antMatchers(HttpMethod.GET, "/tipousuariows/list").permitAll()
+                .antMatchers(HttpMethod.PUT, "/tipousuariows/update").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/tipousuariows/delete").permitAll()
+                
+                .antMatchers(HttpMethod.GET, "/usuariows/list").permitAll()
+                .antMatchers(HttpMethod.POST, "/usuariows/create").permitAll()
+                .antMatchers(HttpMethod.PUT, "/usuariows/update").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/usuariows/delete").permitAll()
+                
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
