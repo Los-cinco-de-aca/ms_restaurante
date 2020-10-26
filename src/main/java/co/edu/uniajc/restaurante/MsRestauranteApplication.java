@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -35,12 +36,7 @@ public class MsRestauranteApplication {
             http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/token").permitAll()
-                
-                .antMatchers(HttpMethod.POST, "/swagger-ui.html").permitAll()
-                .antMatchers(HttpMethod.GET, "/swagger-ui.html").permitAll()
-                .antMatchers(HttpMethod.PUT, "/swagger-ui.html").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/swagger-ui.html").permitAll()
-                
+                             
                 .antMatchers(HttpMethod.POST, "/pedidosws/create").permitAll()
                 .antMatchers(HttpMethod.GET, "/pedidosws/list").permitAll()
                 .antMatchers(HttpMethod.PUT, "/pedidosws/update").permitAll()
@@ -60,13 +56,23 @@ public class MsRestauranteApplication {
                 .antMatchers(HttpMethod.POST, "/usuariows/create").permitAll()
                 .antMatchers(HttpMethod.PUT, "/usuariows/update").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/usuariows/delete").permitAll()
-                
+                               
                 .anyRequest().authenticated().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
             
             http.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
                 
+        }
+        
+        @Configuration
+        public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+               @Override
+               public void configure(WebSecurity web) throws Exception {
+                   web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**");
+               }
+
         }
     }
 
