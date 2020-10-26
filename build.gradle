@@ -84,4 +84,3 @@ jacocoTestReport {
     }
 }
 test.finalizedBy jacocoTestReport
-tasks['sonarqube'].dependsOn test
